@@ -4,6 +4,7 @@
 
 import React from "react";
 import { ExpenseFormData } from "../types";
+import { formatDate } from "../utils/expenseUtils";
 import { TextField, SelectBox, Button } from "../vibes";
 import { useExpenseForm } from "../hooks/useExpenseForm";
 
@@ -83,6 +84,7 @@ export function ExpenseForm({
       <TextField
         label="Date"
         type="date"
+        max={formatDate(new Date())}
         value={formData.date}
         onChange={(e) => handleChange("date", e.target.value)}
         error={errors.date}
